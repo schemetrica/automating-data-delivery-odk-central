@@ -78,7 +78,7 @@ Central, to parse them and to load them into CKAN. As indicated by the
 arrows, the data flows from left to right. Let's look at each of these
 steps in more detail.
 
-<img src="https://github.com/schemetrica/automating-data-delivery-odk-central/raw/master/images/figure1.png" width=100%>
+<img src="https://github.com/schemetrica/automating-data-delivery-odk-central/raw/master/images/figure1.png">
 
 *Figure 1*
 
@@ -98,7 +98,7 @@ called *url* is being created (*Figure 2a*).
 Under the *Data* tab we assign the ODK Central endpoint to the *url* field (*Figure 2b*). This value will get passed as an *output field* to the downstream step which
 will treat it as input.
 
-<img src="https://github.com/schemetrica/automating-data-delivery-odk-central/raw/master/images/figure2b.png" width=100%>
+<img src="https://github.com/schemetrica/automating-data-delivery-odk-central/raw/master/images/figure2b.png">
 
 *Figure 2b*
 
@@ -107,7 +107,7 @@ Under the *Submissions* tab of any survey you'll see the option to
 *Analyze via OData*. Simply click on this button to display the URL. 
 (*Figure 2c*):
 
-<img src="https://github.com/schemetrica/automating-data-delivery-odk-central/raw/master/images/figure2c.png" width=100%>
+<img src="https://github.com/schemetrica/automating-data-delivery-odk-central/raw/master/images/figure2c.png">
 
 *Figure 2c*
 
@@ -123,7 +123,7 @@ URL is defined in the field *url* (passed to us by the upstream step)
 and that the HTTP method is GET. The JSON document returned by the OData
 REST call is stored in a field called *result*.
 
-<img src="https://github.com/schemetrica/automating-data-delivery-odk-central/raw/master/images/figure3b.png" width=100%>
+<img src="https://github.com/schemetrica/automating-data-delivery-odk-central/raw/master/images/figure3b.png">
 
 *Figure 3a*
 
@@ -131,7 +131,7 @@ We need to provide credentials to ODK Central. ODK Central supports
 basic authentication, so we provide values for the *HTTP Login* and
 *HTTP Password* parameters (*Figure 3b*).
 
-<img src="https://github.com/schemetrica/automating-data-delivery-odk-central/raw/master/images/figure3b.png" width=100%>
+<img src="https://github.com/schemetrica/automating-data-delivery-odk-central/raw/master/images/figure3b.png">
 
 
 *Figure 3b*
@@ -151,7 +151,7 @@ that appear in the output stream (*Figure 4*). Kettle supports [JSONPath](https:
 expressions to allow for precise extraction of fields within the
 submissions document's structure.
 
-<img src="https://github.com/schemetrica/automating-data-delivery-odk-central/raw/master/images/figure4.png" width=100%>
+<img src="https://github.com/schemetrica/automating-data-delivery-odk-central/raw/master/images/figure4.png">
 
 *Figure 4*
 
@@ -162,7 +162,7 @@ analyses. It may also be necessary to translate survey labels to a
 different language. We can use the *Select Values* step to accomplish
 this and to re-order or remove columns as needed (*Figure 5*).
 
-<img src="https://github.com/schemetrica/automating-data-delivery-odk-central/raw/master/images/figure5.png" width=100%>
+<img src="https://github.com/schemetrica/automating-data-delivery-odk-central/raw/master/images/figure5.png">
 
 *Figure 5*
 
@@ -178,7 +178,7 @@ that contain *resources* and also uses an API key for authentication.
 The Kettle step library can be extended with community-developed
 plug-ins; the CKAN Writer step is a good example.
 
-<img src="https://github.com/schemetrica/automating-data-delivery-odk-central/raw/master/images/figure6a.png" width=100%>
+<img src="https://github.com/schemetrica/automating-data-delivery-odk-central/raw/master/images/figure6a.png">
 
 *Figure 6a*
 
@@ -188,7 +188,7 @@ process was automated end-to-end. With sufficient data it is also
 possible to use CKAN\'s available
 [visualizations](https://docs.ckan.org/en/2.8/maintaining/data-viewer.html).
 
-<img src="https://github.com/schemetrica/automating-data-delivery-odk-central/raw/master/images/figure6b.png" width=100%>
+<img src="https://github.com/schemetrica/automating-data-delivery-odk-central/raw/master/images/figure6b.png">
 
 *Figure 6b*
 
