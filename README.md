@@ -79,7 +79,10 @@ Central, to parse them and to load them into CKAN. As indicated by the
 arrows, the data flows from left to right. Let's look at each of these
 steps in more detail.
 
-[Figure 1]
+*Figure 1:*
+>
+![](./images/figure1.png)
+
 
 ### Set the URL
 
@@ -88,22 +91,27 @@ anywhere we want to generate arbitrary rows of data. For example, it can
 be used to create reference lists such as a custom calendars or lookup
 tables. In our case we use it to define the value of the ODK Central
 sandbox's OData endpoint URL. Under the *Meta* tab we see that a field
-called *url* is being created (Figure 2a). Under the *Data* tab we
-assign the ODK Central endpoint to the *url* field (Figure 2b). This
+called *url* is being created (*Figure 2a*). Under the *Data* tab we
+assign the ODK Central endpoint to the *url* field (*Figure 2b*). This
 value will get passed as an *output field* to the downstream step which
 will treat it as input.
 
-[Figure 2a]
+*Figure 2a:*
+>
+![](./images/figure2a.png)
 
-
-[Figure 2b]
+*Figure 2b*
+>
+![](./images/figure2b.png)
 
 How did we determine which URL to use? ODK Central makes this easy.
 Under the *Submissions* tab of any survey you'll see the option to
-*Analyze via OData*. Simply click on this button to discover the URL
-(Figure 2c):
+*Analyze via OData*. Simply click on this button to discover the URL. 
+(*Figure 2c*):
 
-[Figure 2c]
+*Figure 2c:*
+>
+![](./images/figure2c.png)
 
 ### Get Submissions from ODK Central
 
@@ -112,18 +120,22 @@ step called the *REST Client*. This step is not specific to ODK -- it
 can be used with any well-formed REST endpoint. In our case we make a
 single call to the endpoint and it returns a JSON document containing
 the survey collection. The connection to ODK Central is a simple "fill
-in the blanks" exercise. In Figure 3a, we see that the OData endpoint
+in the blanks" exercise. In *Figure 3a*, we see that the OData endpoint
 URL is defined in the field *url* (passed to us by the upstream step)
 and that the HTTP method is GET. The JSON document returned by the OData
 REST call is stored in a field called *result*.
 
-[Figure 3a]
+*Figure 3a:*
+>
+![](./images/figure3a.png)
 
 We need to provide credentials to ODK Central. ODK Central supports
 basic authentication, so we provide values for the *HTTP Login* and
 *HTTP Password* parameters (Figure 3b).
 
-[Figure 3b]
+*Figure 3b:*
+>
+![](./images/figure3b.png)
 
 Note the use of a variable called `${ODK CENTRAL.USER}. Kettle allows
 administrators to define variables that are referenced dynamically at
@@ -140,7 +152,9 @@ that appear in the output stream (Figure 4). Kettle supports JSONPath
 expressions to allow for precise extraction of fields within the
 submissions document's structure.
 
-[Figure 4]
+*Figure 4:*
+>
+![](./images/figure4.png)
 
 ### Select Fields for CKAN
 
@@ -149,7 +163,9 @@ analyses. It may also be necessary to translate survey labels to a
 different language. We can use the *Select Values* step to accomplish
 this and to re-order or remove columns as needed (Figure 5).
 
-[Figure 5]
+*Figure 5:*
+>
+![](./images/figure5.png)
 
 ### Write to CKAN
 
@@ -163,7 +179,9 @@ that contain *resources* and also uses an API key for authentication.
 The Kettle step library can be extended with community-developed
 plug-ins; the CKAN Writer step is a good example.
 
-[Figure 6a]
+*Figure 6a:*
+>
+![](./images/figure6a.png)
 
 Once we've executed the transformation we can preview the survey
 answers in the CKAN portal (Figure 6b), proving that the data delivery
@@ -171,7 +189,9 @@ process was automated end-to-end. With sufficient data it is also
 possible to use CKAN\'s available
 [visualizations](https://docs.ckan.org/en/2.8/maintaining/data-viewer.html).
 
-[Figure 6b]
+*Figure 6b:*
+>
+![](./images/figure6b.png)
 
 ## Additional Scenarios
 
