@@ -136,7 +136,7 @@ basic authentication, so we provide values for the *HTTP Login* and
 
 *Figure 3b*
 
-Note the use of a variable called `${ODK CENTRAL.USER}`. Kettle allows
+Note the use of a variable called `${ODKCENTRAL.USER}`. Kettle allows
 administrators to define variables that are referenced dynamically at
 runtime. This supports complete lifecycle testing, simplifies
 maintenance and improves security.
@@ -262,14 +262,13 @@ and to improve interoperability.
 Kettle (including the CKAN Datastore Writer Plugin) can be downloaded
 at
 [http://kettle-builds.s3-website-eu-west-1.amazonaws.com/kettle-remix/](http://kettle-builds.s3-website-eu-west-1.amazonaws.com/kettle-remix/).
-This solution was developed and tested using [Kettle
-8.2.0.7-719](http://kettle-neo4j-remix-8.2.0.7-719-remix.tgz)
-on Ubuntu 18.04 LTS.
+This solution was developed and tested using Kettle
+8.2.0.7-719 on Ubuntu 18.04 LTS.
 
 CKAN can be downloaded at
 [https://ckan.org/download-and-install/](https://ckan.org/download-and-install/)
 
-[A simple transformation for testing Kettle connectivity to]
+A simple transformation for testing Kettle connectivity to CKAN can be found [here](./create-simple-resource-in-ckan.ktr).
 
 ## CKAN Datastore Writer Plugin \-- Attribution
 
@@ -283,7 +282,7 @@ CKAN can be downloaded at
 -   OpenGov:
     > [https://github.com/OpenGov-OpenData/CKAN-DataStore-Writer-for-Pentaho-Data-Integration](https://github.com/OpenGov-OpenData/CKAN-DataStore-Writer-for-Pentaho-Data-Integration)
 
--   KnowBI:
+-   KnowBI (version used by this solution):
     > [https://github.com/knowbi/knowbi-kettle-ckan-step](https://github.com/knowbi/knowbi-kettle-ckan-step)
 
 ## Kettle Documentation
