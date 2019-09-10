@@ -91,7 +91,7 @@ tables. In our case we use it to define the value of the ODK Central
 sandbox's OData endpoint URL. Under the *Meta* tab we see that a field
 called *url* is being created (*Figure 2a*). 
 
-<img src="https://github.com/schemetrica/automating-data-delivery-odk-central/raw/master/images/figure2a.png" width=150%>
+<img src="https://github.com/schemetrica/automating-data-delivery-odk-central/raw/master/images/figure2a.png">
 
 *Figure 2a*
 
