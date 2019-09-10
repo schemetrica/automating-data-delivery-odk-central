@@ -13,13 +13,13 @@ a relational database. ODK Central supports this use case as
 well.
 
 The purpose of this article is to show how survey data can be 
-extracted using an open source data integration tool (Kettle).
-We access submissions from a survey hosted on the [ODK Central sandbox
-server](https://sandbox.central.opendatakit.org/#/), transforming the JSON document into tabular rows, then loading
+processed using an open source data integration tool (Kettle).
+We retrieve submissions from a survey hosted on the [ODK Central sandbox
+server](https://sandbox.central.opendatakit.org/#/), transform the JSON document into tabular rows, then loading
 the rows into a dataset stored in a CKAN data portal. The workflow is
-implemented using a small number of visual components and can be freely
-used by anyone in the ODK Community. Additional scenarios are discussed,
-and links to resources are provided at the end.
+implemented using a small number of Kettle steps and can be freely
+modified by anyone in the ODK Community. Additional scenarios are discussed,
+and links to documentation are provided at the end.
 
 ## About Kettle
 
