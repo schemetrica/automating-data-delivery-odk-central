@@ -282,7 +282,7 @@ A simple transformation for testing Kettle connectivity to CKAN can be found [he
 -   OpenGov:
     > [https://github.com/OpenGov-OpenData/CKAN-DataStore-Writer-for-Pentaho-Data-Integration](https://github.com/OpenGov-OpenData/CKAN-DataStore-Writer-for-Pentaho-Data-Integration)
 
--   KnowBI (version used by this solution):
+-   KnowBI (the version used by this solution):
     > [https://github.com/knowbi/knowbi-kettle-ckan-step](https://github.com/knowbi/knowbi-kettle-ckan-step)
 
 ## Kettle Documentation
