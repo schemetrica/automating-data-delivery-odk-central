@@ -1,6 +1,6 @@
-#Automating Data Delivery using the OData Endpoint in ODK
+# Automating Data Delivery using the OData Endpoint in ODK
 
-##Overview
+## Overview
 
 [ODK Central](https://docs.opendatakit.org/central-intro/)
 includes an [OData](https://www.odata.org/) endpoint that
@@ -21,7 +21,7 @@ implemented using a small number of visual components and can be freely
 used by anyone in the ODK Community. Additional scenarios are discussed,
 and links to resources are provided at the end.
 
-##About Kettle
+## About Kettle
 
 [Kettle](http://www.ibridge.be/) is an open source tool
 for extracting, transforming and loading data. The design paradigm is
@@ -42,7 +42,7 @@ production deployments in a cloud environment. A companion service
 implements job orchestration. This allows a set of transformations to be
 executed with dependency checking and error handling.
 
-##About CKAN
+## About CKAN
 
 [CKAN](https://ckan.org/) is a tool for creating open
 data websites. Think of it as a content management system (like
@@ -70,7 +70,7 @@ demo](https://demo.ckan.org/) instance. This solution uses
 a CKAN instance hosted by
 [Amplus.io](https://amplusdata.io/).
 
-##Workflow
+## Workflow
 
 *Figure 1* illustrates how our use case appears in Kettle. One benefit is
 immediately clear -- the transformation logic is easy to understand.
@@ -81,7 +81,7 @@ steps in more detail.
 
 [Figure 1]
 
-###Set the URL
+### Set the URL
 
 The transformation starts with a *Data Grid* step. This step is used
 anywhere we want to generate arbitrary rows of data. For example, it can
@@ -105,7 +105,7 @@ Under the *Submissions* tab of any survey you'll see the option to
 
 [Figure 2c]
 
-###Get Submissions from ODK Central
+### Get Submissions from ODK Central
 
 To retrieve our survey data from the OData endpoint, we use a Kettle
 step called the *REST Client*. This step is not specific to ODK -- it
@@ -130,7 +130,7 @@ administrators to define variables that are referenced dynamically at
 runtime. This supports complete lifecycle testing, simplifies
 maintenance and improves security.
 
-###Extract the Survey Fields
+### Extract the Survey Fields
 
 Once the transformation has executed the OData endpoint call, the
 *result* field contains our survey collection. The *JSON Input* step
@@ -142,7 +142,7 @@ submissions document's structure.
 
 [Figure 4]
 
-###Select Fields for CKAN
+### Select Fields for CKAN
 
 It's not uncommon to want "friendly names\" for use in reports and
 analyses. It may also be necessary to translate survey labels to a
@@ -151,7 +151,7 @@ this and to re-order or remove columns as needed (Figure 5).
 
 [Figure 5]
 
-###Write to CKAN
+### Write to CKAN
 
 We're now ready to write the survey answer records to CKAN. Unlike our
 use of the general-purpose *REST Client* step with the OData endpoint,
@@ -173,7 +173,7 @@ possible to use CKAN\'s available
 
 [Figure 6b]
 
-##Additional Scenarios
+## Additional Scenarios
 
 We chose a simple use case to illustrate how a small subset of Kettle
 steps could be used to implement basic workflow. In the real world
@@ -225,7 +225,7 @@ we\'re likely to encounter additional requirements:
    [https://docs.opendatakit.org/odk-x/odk-2-sync-protocol](https://docs.opendatakit.org/odk-x/odk-2-sync-protocol/)
     as a starting point.
 
-##Summary
+## Summary
 
 This example has shown that it\'s possible to retrieve submissions from
 ODK Central, extract fields from survey collections and load them as
@@ -238,7 +238,7 @@ pipeline for additional use cases. Organizations with budget constraints
 can use Kettle with ODK Central to standardize post-survey processing
 and to improve interoperability.
 
-###Try It Yourself
+## Try It Yourself
 
 Kettle (including the CKAN Datastore Writer Plugin) can be downloaded
 at
@@ -252,7 +252,7 @@ CKAN can be downloaded at
 
 [A simple transformation for testing Kettle connectivity to]
 
-###CKAN Datastore Writer Plugin \-- Attribution
+## CKAN Datastore Writer Plugin \-- Attribution
 
 *Initial Release:*
 
@@ -267,7 +267,7 @@ CKAN can be downloaded at
 -   KnowBI:
     > [https://github.com/knowbi/knowbi-kettle-ckan-step](https://github.com/knowbi/knowbi-kettle-ckan-step)
 
-###Kettle Documentation
+## Kettle Documentation
 
 > [Pentaho Kettle Solutions: Building Open Source ETL Solutions with
 > Pentaho Data Integration](https://www.amazon.com/Pentaho-Kettle-Solutions-Building-Integration/dp/0470635177/)
