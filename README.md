@@ -78,7 +78,7 @@ Central, to parse them and to load them into CKAN. As indicated by the
 arrows, the data flows from left to right. Let's look at each of these
 steps in more detail.
 
-![](./images/figure1.png)
+![](./images/figure1.png){:height="100%" width="100%"}
 
 *Figure 1*
 
@@ -91,14 +91,14 @@ tables. In our case we use it to define the value of the ODK Central
 sandbox's OData endpoint URL. Under the *Meta* tab we see that a field
 called *url* is being created (*Figure 2a*). 
 
-![](./images/figure2a.png)
+![](./images/figure2a.png){:height="100%" width="100%"}
 
 *Figure 2a*
 >
 Under the *Data* tab we assign the ODK Central endpoint to the *url* field (*Figure 2b*). This value will get passed as an *output field* to the downstream step which
 will treat it as input.
 
-![](./images/figure2b.png)
+![](./images/figure2b.png){:height="100%" width="100%"}
 
 *Figure 2b*
 
@@ -107,7 +107,7 @@ Under the *Submissions* tab of any survey you'll see the option to
 *Analyze via OData*. Simply click on this button to display the URL. 
 (*Figure 2c*):
 
-![](./images/figure2c.png)
+![](./images/figure2c.png){:height="100%" width="100%"}
 
 *Figure 2c*
 
@@ -123,7 +123,7 @@ URL is defined in the field *url* (passed to us by the upstream step)
 and that the HTTP method is GET. The JSON document returned by the OData
 REST call is stored in a field called *result*.
 
-![](./images/figure3a.png)
+![](./images/figure3a.png){:height="100%" width="100%"}
 
 *Figure 3a*
 
@@ -131,7 +131,7 @@ We need to provide credentials to ODK Central. ODK Central supports
 basic authentication, so we provide values for the *HTTP Login* and
 *HTTP Password* parameters (*Figure 3b*).
 
-![](./images/figure3b.png)
+![](./images/figure3b.png){:height="100%" width="100%"}
 
 *Figure 3b*
 
@@ -150,7 +150,7 @@ that appear in the output stream (*Figure 4*). Kettle supports [JSONPath](https:
 expressions to allow for precise extraction of fields within the
 submissions document's structure.
 
-![](./images/figure4.png)
+![](./images/figure4.png){:height="100%" width="100%"}
 
 *Figure 4*
 
@@ -161,7 +161,7 @@ analyses. It may also be necessary to translate survey labels to a
 different language. We can use the *Select Values* step to accomplish
 this and to re-order or remove columns as needed (*Figure 5*).
 
-![](./images/figure5.png)
+![](./images/figure5.png){:height="100%" width="100%"}
 
 *Figure 5*
 
@@ -177,7 +177,7 @@ that contain *resources* and also uses an API key for authentication.
 The Kettle step library can be extended with community-developed
 plug-ins; the CKAN Writer step is a good example.
 
-![](./images/figure6a.png)
+![](./images/figure6a.png){:height="100%" width="100%"}
 
 *Figure 6a*
 
@@ -187,7 +187,7 @@ process was automated end-to-end. With sufficient data it is also
 possible to use CKAN\'s available
 [visualizations](https://docs.ckan.org/en/2.8/maintaining/data-viewer.html).
 
-![](./images/figure6b.png)
+![](./images/figure6b.png){:height="100%" width="100%"}
 
 *Figure 6b*
 
