@@ -123,7 +123,7 @@ URL is defined in the field *url* (passed to us by the upstream step)
 and that the HTTP method is GET. The JSON document returned by the OData
 REST call is stored in a field called *result*.
 
-<img src="https://github.com/schemetrica/automating-data-delivery-odk-central/raw/master/images/figure3b.png">
+<img src="https://github.com/schemetrica/automating-data-delivery-odk-central/raw/master/images/figure3a.png">
 
 *Figure 3a*
 
