@@ -123,7 +123,7 @@ URL is defined in the field *url* (passed to us by the upstream step)
 and that the HTTP method is GET. The JSON document returned by the OData
 REST call is stored in a field called *result*.
 
-<img src="https://github.com/schemetrica/automating-data-delivery-odk-central/raw/master/images/figure3a.png">
+<img src="https://github.com/schemetrica/automating-data-delivery-odk-central/raw/master/images/figure3a.png" width="85%">
 
 *Figure 3a*
 
@@ -131,7 +131,7 @@ We need to provide credentials to ODK Central. ODK Central supports
 basic authentication, so we provide values for the *HTTP Login* and
 *HTTP Password* parameters (*Figure 3b*).
 
-<img src="https://github.com/schemetrica/automating-data-delivery-odk-central/raw/master/images/figure3b.png">
+<img src="https://github.com/schemetrica/automating-data-delivery-odk-central/raw/master/images/figure3b.png" width="85%">
 
 
 *Figure 3b*
@@ -178,7 +178,7 @@ that contain *resources* and uses an API key for authentication.
 The Kettle step library can be extended with community-developed
 plug-ins; the CKAN Writer step is a good example.
 
-<img src="https://github.com/schemetrica/automating-data-delivery-odk-central/raw/master/images/figure6a.png" width="80%">
+<img src="https://github.com/schemetrica/automating-data-delivery-odk-central/raw/master/images/figure6a.png" width="85%">
 
 *Figure 6a*
 
