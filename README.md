@@ -12,14 +12,14 @@ submissions, extract the survey data and load it into a data portal or
 a relational database. ODK Central supports this use case as
 well.
 
-The purpose of this article is to show how survey data can be 
-processed using an open source data integration tool (Kettle).
+The goal of this post is to show how survey data can be 
+processed using an open source data integration tool ([Kettle](http://www.ibridge.be/)).
 We retrieve submissions from a survey hosted on the [ODK Central sandbox
 server](https://sandbox.central.opendatakit.org/#/), transform the JSON document 
-into tabular rows, then load the rows into a dataset stored in a CKAN data portal. 
+into a set of rows, then load the rows into a dataset stored in a CKAN data portal. 
 The workflow is implemented using a small number of Kettle steps and can be freely
-modified by anyone in the ODK Community. Additional scenarios are discussed
-and links to documentation are provided at the end.
+modified by anyone in the open source community. Additional scenarios are discussed
+and documentation links are provided at the end.
 
 ## About Kettle
 
@@ -27,8 +27,7 @@ and links to documentation are provided at the end.
 for extracting, transforming and loading data. The design paradigm is
 based on the concept of components (*steps*) that are connected to form
 a data pipeline (aka a *directed graph*). Data flows from component to
-component as defined in the graph; this fulfils the logic of the
-transformation. Each component implements a specific type of
+component to implement transformation logic. Each component implements a specific type of
 functionality such as calling a web service, performing a lookup,
 calculating values or writing to a file or database table. With a
 library of over 100 built-in steps, Kettle is capable of handling
@@ -37,7 +36,7 @@ sophisticated scenarios.
 The Kettle engine runs as an embedded service within a graphical
 designer (*Spoon*). To simplify configuration management and to enforce
 security, the designer can be deployed as a web application (*WebSpoon*).
-Kettle also runs as a headless process on a server to support
+Kettle can also run as a headless process on a server to support
 production deployments in a cloud environment. A companion service
 implements job orchestration. This allows a set of transformations to be
 executed with full dependency checking and error handling.
@@ -51,15 +50,15 @@ organizations to manage and publish collections of structured data. CKAN
 is particularly useful when data needs to be shared by a group of
 organizations. It is used by a significant number of national and local
 governments, research institutions, and other organizations, e.g.
-Nigeria\'s [GRID3](http://grid3.org/) data portal and the
+Nigeria\'s [GRID3](http://grid3.org/) data portal, the
 [Humanitarian Data Exchange](https://data.humdata.org/)
-(HDX), and [many
+(HDX) and [many
 others](https://ckan.org/about/instances/).
 
 Once data has been published, site visitors can use its search features to
-browse and download the data they need. They can preview it using
-maps, graphs and data views. CKAN stores metadata about *datasets* and
-*resources*, and offers a powerful API that allows third-party applications 
+browse and download the data they need. They can preview it using grid views,
+maps and graphs. CKAN stores metadata about *datasets* and
+*resources* and offers a powerful API that allows third-party applications 
 and services to interact with it.
 
 Like Kettle, CKAN is open source software with an active developer
@@ -71,8 +70,8 @@ a CKAN instance hosted at
 
 ## Workflow
 
-*Figure 1* illustrates how our use case appears in Kettle. One benefit is
-immediately clear -- the transformation logic is easy to understand.
+*Figure 1* illustrates how the transformation appears in Kettle. One benefit is
+immediately clear -- *the logic is easy to understand*.
 Only five steps are required to download the submissions from ODK
 Central, to parse them and to load them into CKAN. As indicated by the
 arrows, the data flows from left to right. Let's look at each of these
@@ -88,14 +87,14 @@ The transformation starts with a *Data Grid* step. This step is used
 anywhere we want to generate arbitrary rows of data. For example, it can
 be used to create reference lists such as a custom calendars or lookup
 tables. In our case we use it to define the value of the ODK Central
-sandbox's OData endpoint URL. Under the *Meta* tab we see that a field
-called *url* is being created (*Figure 2a*). 
+sandbox's *OData endpoint URL*. Under the *Meta* tab we see that a field
+called *url* has been created (*Figure 2a*). 
 
 <img src="https://github.com/schemetrica/automating-data-delivery-odk-central/raw/master/images/figure2a.png">
 
 *Figure 2a*
 
-Under the *Data* tab we assign the ODK Central endpoint to the *url* field (*Figure 2b*). This value will get passed as an *output field* to the downstream step which
+Under the *Data* tab we assign the ODK Central endpoint value to the *url* field (*Figure 2b*). This value will get passed as an *output field* to the downstream step which
 will treat it as input.
 
 <img src="https://github.com/schemetrica/automating-data-delivery-odk-central/raw/master/images/figure2b.png">
@@ -127,7 +126,7 @@ REST call is stored in a field called *result*.
 
 *Figure 3a*
 
-We need to provide credentials to ODK Central. ODK Central supports
+To connect to ODK Central we need to provide our credentials. ODK Central supports
 basic authentication, so we provide values for the *HTTP Login* and
 *HTTP Password* parameters (*Figure 3b*).
 
@@ -143,7 +142,7 @@ maintenance and improves security.
 
 ### Extract the Survey Fields
 
-Once the transformation has executed the OData endpoint call, the
+Once the transformation has made the OData API call, the
 *result* field contains our survey collection. The *JSON Input* step
 allows us to specify the key/value pairs in the *result* document that
 correspond to the survey questions, and to map the values to new fields
@@ -175,8 +174,8 @@ purpose-built step that interacts with the data portal using the CKAN
 API. Special-purpose steps are useful when a data source has unique
 characteristics. For example, CKAN is based on the concept of *datasets*
 that contain *resources* and uses an API key for authentication.
-The Kettle step library can be extended with community-developed
-plug-ins; the CKAN Writer step is a good example.
+The Kettle plug-in library can be extended with community-developed
+components; the CKAN Datastore Writer is a good example.
 
 <img src="https://github.com/schemetrica/automating-data-delivery-odk-central/raw/master/images/figure6a.png" width="85%">
 
@@ -195,8 +194,8 @@ possible to use CKAN\'s available
 ## Additional Scenarios
 
 We chose a simple use case to illustrate how a small subset of Kettle
-steps could be used to implement basic workflow. In the real world
-we\'re likely to encounter additional requirements:
+steps could be used to implement a simple workflow. In the real world
+we\'re likely to encounter more complex requirements:
 
 -   **Loading to relational databases**. In our example,
     loading to MySQL, PostgreSQL, SQL Server or another JDBC-compatible
@@ -204,24 +203,23 @@ we\'re likely to encounter additional requirements:
     a *Table Output* step. It\'s even possible to write to multiple
     output destinations simultaneously.
 
--   **Multi-value surveys (i.e. with questions that result in a
+-   **Multi-value surveys (i.e. surveys with questions that result in a
     variable-length array of answers)**. This is a common
-    scenario which Kettle can support by \"cascading\" JSON Input steps
+    scenario which Kettle can support by cascading JSON Input steps
     in a transformation. Multi-value fields are extracted in the first
     step (as JSON "sub-documents"), then parsed in a second
     step.
 
 -   **Merging submissions from related-but-different
-    surveys**. Surveys evolve over time and there is often a
-    requirement to harmonize semantically equivalent data. Since Kettle can
-    dynamically create and alter fields, it's possible to merge data
+    surveys**. Surveys evolve over time and there is often a requirement to harmonize semantically equivalent but structurally 
+    different datasets. Since Kettle can dynamically create and alter fields, it's possible to merge data
     from multiple versions of a survey. Default and/or calculated values
     can be used with missing answers.
 
 -   **Capturing and recording metadata**. Metadata is
     available directly in the submissions document, in the XLSForm and
     also in the runtime environment. Kettle can read, extract and
-    correlate metadata from multiple sources to create detailed logs for
+    match metadata from multiple sources to create detailed logs for
     the purpose of documentation and governance.
 
 -   **Enrichment with existing data**. Surveys often make use of
@@ -234,12 +232,12 @@ we\'re likely to encounter additional requirements:
 -   **Dynamically-generated XLSForms**. Kettle\'s *Excel
     Writer* step provides an opportunity to generate XLSForms using data
     available at any point in a pipeline. The step can create new
-    spreadsheets (with the option to use a template) and can update
+    spreadsheets (optionally using a template) and can update
     existing spreadsheets.
 
 -   **ODK-X**. Although ODK-X does not support OData, it does
-    have a REST API that allows a developer to retrieve survey results.
-    Unlike ODK v1, ODK-X can return surveys submitted since a specific
+    have a REST API that allows developers to retrieve survey results.
+    Unlike ODK 1.0, ODK-X can return surveys submitted since a specific
     date, or surveys whose data values have changed . See 
    [https://docs.opendatakit.org/odk-x/odk-2-sync-protocol](https://docs.opendatakit.org/odk-x/odk-2-sync-protocol/)
     for details.
@@ -247,12 +245,10 @@ we\'re likely to encounter additional requirements:
 ## Summary
 
 This example has shown that it\'s possible to retrieve submissions from
-ODK Central, extract fields from survey collections and load them as
-rows into CKAN. *The solution stands out for its simplicity* - anyone
+ODK Central, extract fields from survey collections and load them into CKAN. *The solution stands out for its simplicity* - anyone
 who can install a Java application on Windows, Linux or MacOS can
-execute the workflow with minimal difficulty. With a modest orientation
-it\'s possible for data-savvy analysts to adapt and extend the
-transformation for additional use cases. Organizations with budget constraints
+execute the workflow with minimal difficulty. With a modest orientation to Kettle
+it\'s possible for data-savvy analysts to create transformations for their own needs. Organizations with budget constraints
 \- and consortiums with the need to standardize on an open source stack -
 can use Kettle with ODK Central to standardize post-survey processing
 and to improve interoperability.
@@ -262,11 +258,11 @@ and to improve interoperability.
 Kettle (including the CKAN Datastore Writer Plugin) can be downloaded
 at
 [http://kettle-builds.s3-website-eu-west-1.amazonaws.com/kettle-remix/](http://kettle-builds.s3-website-eu-west-1.amazonaws.com/kettle-remix/).
-This solution was developed and tested using Kettle
-8.2.0.7-719 on Ubuntu 18.04 LTS.
+The solution was developed and tested using Kettle
+8.2.0.7-719 on Ubuntu 18.04 LTS. 
 
 CKAN can be downloaded at
-[https://ckan.org/download-and-install/](https://ckan.org/download-and-install/)
+[https://ckan.org/download-and-install/](https://ckan.org/download-and-install/). The CKAN Datastore Writer was tested against CKAN 2.8.2.
 
 A simple transformation for testing Kettle connectivity to CKAN is available [here](./create-simple-resource-in-ckan.ktr).
 
