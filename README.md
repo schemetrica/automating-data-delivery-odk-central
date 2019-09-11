@@ -270,7 +270,7 @@ CKAN can be downloaded at
 
 A simple transformation for testing Kettle connectivity to CKAN is available [here](./create-simple-resource-in-ckan.ktr).
 
-## CKAN Datastore Writer Plugin \-- Attribution
+## CKAN Datastore Writer Plugin \- Attribution
 
 *Initial Release:*
 
