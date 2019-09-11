@@ -5,7 +5,7 @@
 [ODK Central](https://docs.opendatakit.org/central-intro/)
 includes an [OData](https://www.odata.org/) endpoint that
 can be accessed by tools and languages that support RESTful web
-services. OData has been shown to work with Tableau and PowerBI,
+services. Both Tableau and PowerBI support OData,
 allowing users to download survey submissions for immediate analysis.
 But what about other scenarios? A common requirement is to retrieve ODK
 submissions, extract the survey data and load it into a data portal or
@@ -56,10 +56,10 @@ Nigeria\'s [GRID3](http://grid3.org/) data portal and the
 (HDX), and [many
 others](https://ckan.org/about/instances/).
 
-Once data has been published, site visitors can use it\'s search features to
-browse and download the data they need. They can also preview it using
+Once data has been published, site visitors can use its search features to
+browse and download the data they need. They can preview it using
 maps, graphs and data views. CKAN stores metadata about *datasets* and
-*resources*, and also offers a powerful API that allows third-party applications 
+*resources*, and offers a powerful API that allows third-party applications 
 and services to interact with it.
 
 Like Kettle, CKAN is open source software with an active developer
@@ -102,7 +102,7 @@ will treat it as input.
 
 *Figure 2b*
 
-How did we determine which URL to use? ODK Central makes this easy.
+How did we decide which URL to use? ODK Central makes this easy.
 Under the *Submissions* tab of any survey you'll see the option to
 *Analyze via OData*. Simply click on this button to display the URL. 
 (*Figure 2c*):
@@ -157,8 +157,8 @@ submissions document's structure.
 
 ### Select Fields for CKAN
 
-It's not uncommon to want "friendly names\" for use in reports and
-analyses. It may also be necessary to translate survey labels to a
+It's common to use "friendly names\" in reports and
+analyses. It may be necessary to translate survey labels to a
 different language. We can use the *Select Values* step to accomplish
 this and to re-order or remove columns as needed (*Figure 5*).
 
@@ -174,7 +174,7 @@ the *CKAN Writer* step is specific to CKAN (*Figure 6a*). It\'s a
 purpose-built step that interacts with the data portal using the CKAN
 API. Special-purpose steps are useful when a data source has unique
 characteristics. For example, CKAN is based on the concept of *datasets*
-that contain *resources* and also uses an API key for authentication.
+that contain *resources* and uses an API key for authentication.
 The Kettle step library can be extended with community-developed
 plug-ins; the CKAN Writer step is a good example.
 
@@ -184,7 +184,7 @@ plug-ins; the CKAN Writer step is a good example.
 
 Once we've executed the transformation we can preview the survey
 answers in the CKAN portal (*Figure 6b*), proving that the data delivery
-process was automated end-to-end. With sufficient data it is also
+process was automated end-to-end. With enough data it is also
 possible to use CKAN\'s available
 [visualizations](https://docs.ckan.org/en/2.8/maintaining/data-viewer.html).
 
@@ -213,7 +213,7 @@ we\'re likely to encounter additional requirements:
 
 -   **Merging submissions from related-but-different
     surveys**. Surveys evolve over time and there is often a
-    requirement harmonize semantically equivalent data. Since Kettle can
+    requirement to harmonize semantically equivalent data. Since Kettle can
     dynamically create and alter fields, it's possible to merge data
     from multiple versions of a survey. Default and/or calculated values
     can be used with missing answers.
@@ -268,7 +268,7 @@ This solution was developed and tested using Kettle
 CKAN can be downloaded at
 [https://ckan.org/download-and-install/](https://ckan.org/download-and-install/)
 
-A simple transformation for testing Kettle connectivity to CKAN can be found [here](./create-simple-resource-in-ckan.ktr).
+A simple transformation for testing Kettle connectivity to CKAN is available [here](./create-simple-resource-in-ckan.ktr).
 
 ## CKAN Datastore Writer Plugin \-- Attribution
 
