@@ -1,4 +1,4 @@
-# Automating Data Delivery using the OData Endpoint in ODK
+# Automating Data Delivery using the OData Endpoint in ODK Central
 
 ## Overview
 
