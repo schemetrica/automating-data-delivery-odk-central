@@ -178,7 +178,7 @@ that contain *resources* and uses an API key for authentication.
 The Kettle step library can be extended with community-developed
 plug-ins; the CKAN Writer step is a good example.
 
-<img src="https://github.com/schemetrica/automating-data-delivery-odk-central/raw/master/images/figure6a.png">
+<img src="https://github.com/schemetrica/automating-data-delivery-odk-central/raw/master/images/figure6a.png" width="80%">
 
 *Figure 6a*
 
